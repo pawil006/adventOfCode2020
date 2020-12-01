@@ -15,11 +15,9 @@ exports.findTwoElements = (params, target) => {
 }
 
 exports.findThreeElements = (params, target) => {
-
     for (let index = 0; index < params.length; index++) {
-        var elementsForTwo = this.findTwoElements(params, target-params[index]);
-        if (elementsForTwo.length == 2) {
-
+        let elementsForTwo = this.findTwoElements(params, target-params[index]);
+        if (typeof elementsForTwo !== 'undefined') {
             return [elementsForTwo[0], elementsForTwo[1], params[index]];
         }
     }  

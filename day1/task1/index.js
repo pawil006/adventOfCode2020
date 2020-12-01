@@ -1,12 +1,13 @@
-let fs = require('fs');
-let finder = require('./elementsFinder.js');
+const fs = require('fs');
+const finder = require('./elementsFinder.js');
 
-let array = fs
+const array = fs
     .readFileSync('./day1/task1/input.txt')
     .toString()
     .split("\n")
     .map(x=>+x)
-    .sort((a,b)=>a-b);
+    .sort((a,b)=>a-b)
+    ;
 
 console.log(finder
     .findTwoElements(array, 2020)
