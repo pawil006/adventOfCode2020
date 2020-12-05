@@ -11,6 +11,7 @@ describe('[day2] for given data', () => {
             // when
             const result = countValidPasswordsCheckLetters(data)
             // then
+            expect(result).to.eq(538)
         })
     })
 
