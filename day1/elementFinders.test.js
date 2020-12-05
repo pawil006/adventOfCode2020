@@ -1,9 +1,9 @@
-const {loadArrayFrom} = require('../commons/testDataLoader');
+const {loadNumbersFrom} = require('../commons/testDataLoader');
 const {expect} = require('chai');
 const {solutionFind2, solutionFind3} = require('./elementsFinder')
 
-describe('for given data', () => {
-    const data = loadArrayFrom('./day1/input.txt');
+describe('[day1] for given data', () => {
+    const data = loadNumbersFrom('./day1/input.txt');
 
     describe('should find 2 numbers [...] and', () => {
         it('should [...] calculate multiplication all of them for given target', () => {
