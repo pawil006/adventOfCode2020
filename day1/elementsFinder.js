@@ -1,24 +1,45 @@
-exports.findTwoElements = (params, target) => {
-    let numberPositionByValue = {};
+const findTwoElements = (params, target) => {
+    const valueByIdx = {};
 
     for (let index = 0; index < params.length; index++) {
-        let thisNumber = params[index];
-        numberPositionByValue[thisNumber] = index;
+        const thisNumber = params[index];
+        valueByIdx[thisNumber] = index;
     }
 
     for (let index = 0; index < params.length; index++) {
-        let difference = target - params[index];
-        if (numberPositionByValue.hasOwnProperty(difference) && numberPositionByValue[difference] !== index) {
-            return [params[index], params[numberPositionByValue[difference]]];
+        const difference = target - params[index];
+        if (valueByIdx.hasOwnProperty(difference) && valueByIdx[difference] !== index) {
+            return [params[index], params[valueByIdx[difference]]];
         }
-    }  
+    }
 }
 
-exports.findThreeElements = (params, target) => {
+const findThreeElements = (params, target) => {
     for (let index = 0; index < params.length; index++) {
-        let elementsForTwo = this.findTwoElements(params, target-params[index]);
-        if (typeof elementsForTwo !== 'undefined') {
+        const elementsForTwo = this.findTwoElements(params, target - params[index]);
+        if (elementsForTwo) {
             return [elementsForTwo[0], elementsForTwo[1], params[index]];
         }
-    }  
+    }
 }
+
+/**
+ * @param data {Array<Number>}
+ * @param target {number}
+ * */
+const solutionFind2 = (data, target) => {
+    return findTwoElements(data, target)
+        .reduce((acc, a) => acc * a);
+}
+
+/**
+ * @param data {Array<Number>}
+ * @param target {number}
+ * */
+const solutionFind3 = (data, target) => {
+    return findThreeElements(data, target)
+        .reduce((acc, a) => acc * a);
+}
+
+exports.solutionFind2 = solutionFind2
+exports.solutionFind3 = solutionFind3
